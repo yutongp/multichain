@@ -14,6 +14,7 @@ const (
 	DGB  = Asset("DGB")  // DigiByte
 	DOGE = Asset("DOGE") // Dogecoin
 	ETH  = Asset("ETH")  // Ether
+	FIL  = Asset("FIL")  // Filecoin
 	ZEC  = Asset("ZEC")  // Zcash
 )
 
@@ -31,6 +32,8 @@ func (asset Asset) OriginChain() Chain {
 		return Dogecoin
 	case ETH:
 		return Ethereum
+	case FIL:
+		return Filecoin
 	case ZEC:
 		return Zcash
 	default:
@@ -67,6 +70,7 @@ const (
 	DigiByte    = Chain("DigiByte")
 	Dogecoin    = Chain("Dogecoin")
 	Ethereum    = Chain("Ethereum")
+	Filecoin    = Chain("Filecoin")
 	Zcash       = Chain("Zcash")
 )
 
