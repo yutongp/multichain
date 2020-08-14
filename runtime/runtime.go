@@ -222,6 +222,30 @@ func (rt *Runtime) BitcoinSubmitTx(ctx context.Context, chain multichain.Chain, 
 	return client.SubmitTx(ctx, tx)
 }
 
+func (rt *Runtime) FilecoinGasPerByte(ctx context.Context, chain multichain.Chain) (pack.U64, error) {
+	gasEstimator, ok := rt.bitcoinCompatGasEstimators[chain]
+	if !ok {
+		return pack.NewU64(0), fmt.Errorf("unsupported chain %v", chain)
+	}
+	return gasEstimator.GasPerByte(ctx)
+}
+
+func (rt *Runtime) FilecoinBuildTx(ctx context.Context, chain multichain.Chain, asset multichain.Asset, inputs []bitcoincompat.Input, recipients []bitcoincompat.Recipient) (bitcoincompat.Tx, error) {
+	txBuilder, ok := rt.bitcoinCompatTxBuilders[chain]
+	if !ok {
+		return nil, fmt.Errorf("unsupported chain %v", chain)
+	}
+	return txBuilder.BuildTx(inputs, recipients)
+}
+
+func (rt *Runtime) FilecoinSubmitTx(ctx context.Context, chain multichain.Chain, tx bitcoincompat.Tx) (pack.Bytes32, error) {
+	client, ok := rt.bitcoinCompatClients[chain]
+	if !ok {
+		return pack.Bytes32{}, fmt.Errorf("unsupported chain %v", chain)
+	}
+	return client.SubmitTx(ctx, tx)
+}
+
 // ContractCall will call a read-only function on a contract (or equivalent).
 // The input value is passed as a pack encoded value, but the chain
 // implementation should decode/re-encode this value into the appropriate
