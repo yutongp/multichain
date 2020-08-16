@@ -29,7 +29,6 @@ func Encode(vals ...interface{}) []byte {
 
 		switch val := val.(type) {
 		case pack.Bytes:
-			println("BYTES")
 			ethval = []byte(val)
 			ty, err = abi.NewType("bytes", "", nil)
 		case pack.Bytes32:
