@@ -170,7 +170,6 @@ func (client *client) UnspentOutputs(ctx context.Context, minConf, maxConf int64
 			Value:        pack.NewU64(uint64(amount)),
 			PubKeyScript: pack.NewBytes(pubKeyScript),
 		}
-		break
 	}
 	return outputs, nil
 }
