@@ -62,6 +62,7 @@ var _ = Describe("IoTex", func() {
 				sHash := hex.EncodeToString(sigHash[:])
 				Expect(err).ToNot(HaveOccurred())
 				fmt.Println("sig hash:", sHash)
+				fmt.Println("public key:", hex.EncodeToString(sk.PublicKey().Bytes()))
 				fmt.Println("transaction hash:", hex.EncodeToString(tx.Hash()))
 
 				err = client.SubmitTx(context.Background(), tx)
