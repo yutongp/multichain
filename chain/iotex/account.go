@@ -149,7 +149,7 @@ func (t *TxBuilder) BuildTx(from, to address.Address, value, nonce pack.U256, ga
 		SetNonce(tsf.Nonce()).
 		SetVersion(1).
 		Build()
-	return &tx{from, to, value, nonce, gasLimit, gasPrice, payload, &evlp, nil, nil}, nil
+	return &tx{from, to, value, nonce, gasLimit, gasPrice, payload, &evlp, pack.NewBytes65([65]byte{0}), nil}, nil
 }
 
 type ClientOptions struct {
