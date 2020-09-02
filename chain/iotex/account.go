@@ -183,22 +183,26 @@ func (c *client) Tx(ctx context.Context, h pack.Bytes) (account.Tx, pack.U64, er
 	return atx, 1, err
 }
 
-func (c *client) SubmitTx(ctx context.Context, tx account.Tx) error {
+func (c *client) SubmitTx(ctx context.Context, t account.Tx) error {
 	if err := c.connect(); err != nil {
 		return err
 	}
-	// todo cannot get public key and sig,etc from account.Tx's interface
-	//pub, err := crypto.BytesToPublicKey(tx)
-	//if err != nil {
-	//	return err
-	//}
 
-	//_, err := c.client.SendAction(ctx, &iotexapi.SendActionRequest{Action: &iotextypes.Action{
-	//	Core:         tx.Envelope.Proto(),
-	//	SenderPubKey: pub.Bytes(),
-	//	Signature:    t.sig[0][:],
-	//}})
-	return nil
+	iotexTx, ok := t.(*tx)
+	if !ok {
+		return errors.New("not iotex tx")
+	}
+	pub, err := crypto.BytesToPublicKey(iotexTx.PublicKey)
+	if err != nil {
+		return err
+	}
+
+	_, err = c.client.SendAction(ctx, &iotexapi.SendActionRequest{Action: &iotextypes.Action{
+		Core:         iotexTx.Proto(),
+		SenderPubKey: pub.Bytes(),
+		Signature:    iotexTx.Sig[0][:],
+	}})
+	return err
 }
 
 func (c *client) connect() (err error) {

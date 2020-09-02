@@ -37,14 +37,14 @@ type Tx interface {
 	// call functions on a contract.
 	Payload() contract.CallData
 
-	// Sighashes that must be signed before the transaction can be submitted by
+	// Sighash that must be signed before the transaction can be submitted by
 	// the client.
-	Sighashes() ([]pack.Bytes32, error)
+	Sighash() (pack.Bytes32, error)
 
 	// Sign the transaction by injecting signatures for the required sighashes.
 	// The serialized public key used to sign the sighashes should also be
 	// specified whenever it is available.
-	Sign([]pack.Bytes65, pack.Bytes) error
+	Sign(pack.Bytes65, pack.Bytes) error
 
 	// Serialize the transaction into bytes. This is the format in which the
 	// transaction will be submitted by the client.
@@ -56,7 +56,7 @@ type Tx interface {
 // information, and this should be accepted during the construction of the
 // chain-specific transaction builder.
 type TxBuilder interface {
-	BuildTx(from, to address.Address, value, nonce pack.U256, payload pack.Bytes) (Tx, error)
+	BuildTx(from, to address.Address, value, nonce, gasLimit, gasPrice pack.U256, payload pack.Bytes) (Tx, error)
 }
 
 // The Client interface defines the functionality required to interact with a
