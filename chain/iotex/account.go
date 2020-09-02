@@ -5,7 +5,6 @@ import (
 	"crypto/tls"
 	"encoding/hex"
 	"errors"
-	"fmt"
 	"math/big"
 	"sync"
 
@@ -70,19 +69,14 @@ func (t *tx) Sighash() (pack.Bytes32, error) {
 }
 
 func (t *tx) Sign(sig pack.Bytes65, publicKey pack.Bytes) error {
-	fmt.Println("Sign before", hex.EncodeToString(publicKey))
 	copy(t.Sig[:], sig[:])
 	t.PublicKey = make([]byte, len(publicKey))
 	copy(t.PublicKey[:], publicKey[:])
-	fmt.Println("Sign after", hex.EncodeToString(t.Sig[:]))
-	fmt.Println("Sign after", hex.EncodeToString(t.PublicKey))
 	return nil
 }
 
 func (t *tx) Serialize() (pack.Bytes, error) {
-	fmt.Println("Serialize", hex.EncodeToString(t.PublicKey))
 	pub, err := crypto.BytesToPublicKey(t.PublicKey)
-	//fmt.Println("Serialize", hex.EncodeToString(t.PublicKey), err)
 	if err != nil {
 		return nil, err
 	}
@@ -180,8 +174,6 @@ func (c *client) Tx(ctx context.Context, h pack.Bytes) (account.Tx, pack.U64, er
 	if err := c.connect(); err != nil {
 		return nil, 0, err
 	}
-	fmt.Println("Tx", hex.EncodeToString(h))
-	fmt.Println("Tx", h.String())
 	res, err := c.client.GetActions(ctx, &iotexapi.GetActionsRequest{
 		Lookup: &iotexapi.GetActionsRequest_ByHash{ByHash: &iotexapi.GetActionByHashRequest{ActionHash: hex.EncodeToString(h)}}})
 	if err != nil {
