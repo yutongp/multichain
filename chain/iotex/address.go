@@ -1,7 +1,8 @@
 package iotex
 
 import (
-	iotex "github.com/iotexproject/iotex-address/address"
+	iotexaddr "github.com/iotexproject/iotex-address/address"
+
 	"github.com/renproject/multichain/api/address"
 	"github.com/renproject/pack"
 )
@@ -39,7 +40,7 @@ func NewAddressEncoder() AddressEncoder {
 }
 
 func (addressDecoder) DecodeAddress(encoded address.Address) (address.RawAddress, error) {
-	addr, err := iotex.FromString(string(encoded))
+	addr, err := iotexaddr.FromString(string(encoded))
 	if err != nil {
 		return nil, err
 	}
@@ -47,7 +48,7 @@ func (addressDecoder) DecodeAddress(encoded address.Address) (address.RawAddress
 }
 
 func (addressEncoder) EncodeAddress(rawAddr address.RawAddress) (address.Address, error) {
-	addr, err := iotex.FromBytes(rawAddr)
+	addr, err := iotexaddr.FromBytes(rawAddr)
 	if err != nil {
 		return address.Address(pack.NewString("")), err
 	}
