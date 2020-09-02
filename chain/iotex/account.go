@@ -38,7 +38,6 @@ type tx struct {
 
 func (t *tx) Hash() pack.Bytes {
 	sealed, err := t.Serialize()
-	fmt.Println("hash()", hex.EncodeToString(sealed), err)
 	if err != nil {
 		return nil
 	}
@@ -78,6 +77,7 @@ func (t *tx) Sign(sig pack.Bytes65, publicKey pack.Bytes) error {
 
 func (t *tx) Serialize() (pack.Bytes, error) {
 	pub, err := crypto.BytesToPublicKey(t.PublicKey)
+	fmt.Println("Serialize", hex.EncodeToString(t.PublicKey), err)
 	if err != nil {
 		return nil, err
 	}
