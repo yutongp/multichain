@@ -19,7 +19,12 @@ require (
 	github.com/filecoin-project/lotus v0.4.1
 	github.com/filecoin-project/sector-storage v0.0.0-20200723200950-ed2e57dde6df // indirect
 	github.com/filecoin-project/specs-actors v0.6.2-0.20200724193152-534b25bdca30
+	github.com/golang/protobuf v1.4.2
 	github.com/hannahhoward/cbor-gen-for v0.0.0-20200723175505-5892b522820a // indirect
+	github.com/iotexproject/go-pkgs v0.1.2-0.20200523040337-5f1d9ddaa8ee
+	github.com/iotexproject/iotex-address v0.2.2
+	github.com/iotexproject/iotex-core v1.1.1
+	github.com/iotexproject/iotex-proto v0.4.3
 	github.com/ipfs/go-ds-badger2 v0.1.1-0.20200708190120-187fc06f714e // indirect
 	github.com/ipfs/go-hamt-ipld v0.1.1 // indirect
 	github.com/lib/pq v1.7.0 // indirect
@@ -36,4 +41,5 @@ require (
 	github.com/xorcare/golden v0.6.1-0.20191112154924-b87f686d7542 // indirect
 	go.uber.org/zap v1.15.0
 	golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
+	google.golang.org/grpc v1.30.0
 )

@@ -59,6 +59,7 @@ const (
 	DOGE = Asset("DOGE") // Dogecoin
 	ETH  = Asset("ETH")  // Ether
 	FIL  = Asset("FIL")  // Filecoin
+	IOTX  = Asset("IOTX")  // IoTeX
 	SOL  = Asset("SOL")  // Solana
 	LUNA = Asset("LUNA") // Luna
 	ZEC  = Asset("ZEC")  // Zcash
@@ -84,6 +85,8 @@ func (asset Asset) OriginChain() Chain {
 		return Ethereum
 	case FIL:
 		return Filecoin
+	case IOTX:
+		return IoTeX
 	case LUNA:
 		return Terra
 	case SOL:
@@ -99,7 +102,7 @@ func (asset Asset) ChainType() ChainType {
 	switch asset {
 	case BCH, BTC, DGB, DOGE, ZEC:
 		return ChainTypeUTXOBased
-	case BNB, ETH:
+	case BNB, ETH,IOTX:
 		return ChainTypeAccountBased
 	default:
 		return ChainType("")
@@ -138,6 +141,7 @@ const (
 	Dogecoin          = Chain("Dogecoin")
 	Ethereum          = Chain("Ethereum")
 	Filecoin          = Chain("Filecoin")
+	IoTeX             = Chain("IoTeX")
 	Solana            = Chain("Solana")
 	Terra             = Chain("Terra")
 	Zcash             = Chain("Zcash")
@@ -165,7 +169,7 @@ func (chain Chain) ChainType() ChainType {
 	switch chain {
 	case Bitcoin, BitcoinCash, DigiByte, Dogecoin, Zcash:
 		return ChainTypeUTXOBased
-	case BinanceSmartChain, Ethereum:
+	case BinanceSmartChain, Ethereum,IoTex:
 		return ChainTypeAccountBased
 	default:
 		return ChainType("")
@@ -174,7 +178,7 @@ func (chain Chain) ChainType() ChainType {
 
 func (chain Chain) IsAccountBased() bool {
 	switch chain {
-	case BinanceSmartChain, Ethereum:
+	case BinanceSmartChain, Ethereum,IoTex:
 		return true
 	default:
 		return false
