@@ -76,8 +76,9 @@ func (t *tx) Sign(sig pack.Bytes65, publicKey pack.Bytes) error {
 }
 
 func (t *tx) Serialize() (pack.Bytes, error) {
+	fmt.Println("Serialize", hex.EncodeToString(t.PublicKey))
 	pub, err := crypto.BytesToPublicKey(t.PublicKey)
-	fmt.Println("Serialize", hex.EncodeToString(t.PublicKey), err)
+	//fmt.Println("Serialize", hex.EncodeToString(t.PublicKey), err)
 	if err != nil {
 		return nil, err
 	}
