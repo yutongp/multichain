@@ -70,8 +70,11 @@ func (t *tx) Sighash() (pack.Bytes32, error) {
 }
 
 func (t *tx) Sign(sig pack.Bytes65, publicKey pack.Bytes) error {
+	fmt.Println("Sign before", hex.EncodeToString(publicKey))
 	copy(t.Sig[:], sig[:])
 	copy(t.PublicKey[:], publicKey[:])
+	fmt.Println("Sign after", hex.EncodeToString(t.Sig[:]))
+	fmt.Println("Sign after", hex.EncodeToString(t.PublicKey))
 	return nil
 }
 
