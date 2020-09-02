@@ -49,7 +49,7 @@ var _ = Describe("IoTex", func() {
 				Expect(err).ToNot(HaveOccurred())
 				sh, err := tx.Sighash()
 				Expect(err).ToNot(HaveOccurred())
-				sk, err := crypto.HexStringToPrivateKey("0d4d9b248110257c575ef2e8d93dd53471d9178984482817dcbd6edb607f8cc5")
+				sk, err := crypto.HexStringToPrivateKey(pkEnv)
 				Expect(err).ToNot(HaveOccurred())
 				sig, err := sk.Sign(sh[:])
 				Expect(err).ToNot(HaveOccurred())
