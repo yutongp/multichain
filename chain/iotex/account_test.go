@@ -45,7 +45,7 @@ var _ = Describe("IoTex", func() {
 				client := iotex.NewClient(opts)
 				builder := iotex.TxBuilder{}
 				gasPrice, _ := new(big.Int).SetString("1000000000000", 10)
-				tx, err := builder.BuildTx("io1vdtfpzkwpyngzvx7u2mauepnzja7kd5rryp0sg", "io1vdtfpzkwpyngzvx7u2mauepnzja7kd5rryp0sg", pack.NewU256FromU64(pack.NewU64(1)), pack.NewU256FromU64(pack.NewU64(132)), pack.NewU256FromInt(gasPrice), pack.NewU256FromU64(pack.NewU64(1000000)), nil)
+				tx, err := builder.BuildTx("io1vdtfpzkwpyngzvx7u2mauepnzja7kd5rryp0sg", "io1vdtfpzkwpyngzvx7u2mauepnzja7kd5rryp0sg", pack.NewU256FromU64(pack.NewU64(1)), pack.NewU256FromU64(pack.NewU64(133)), pack.NewU256FromInt(gasPrice), pack.NewU256FromU64(pack.NewU64(1000000)), nil)
 				Expect(err).ToNot(HaveOccurred())
 				sh, err := tx.Sighash()
 				Expect(err).ToNot(HaveOccurred())
