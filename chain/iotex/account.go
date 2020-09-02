@@ -71,7 +71,7 @@ func (t *tx) Sighash() (pack.Bytes32, error) {
 
 func (t *tx) Sign(sig pack.Bytes65, publicKey pack.Bytes) error {
 	copy(t.Sig[:], sig[:])
-	copy(t.PublicKey, publicKey)
+	copy(t.PublicKey[:], publicKey[:])
 	return nil
 }
 
