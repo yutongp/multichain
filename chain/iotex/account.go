@@ -3,7 +3,9 @@ package iotex
 import (
 	"context"
 	"crypto/tls"
+	"encoding/hex"
 	"errors"
+	"fmt"
 	"math/big"
 	"sync"
 
@@ -36,6 +38,7 @@ type tx struct {
 
 func (t *tx) Hash() pack.Bytes {
 	sealed, err := t.Serialize()
+	fmt.Println("hash()", hex.EncodeToString(sealed), err)
 	if err != nil {
 		return nil
 	}
