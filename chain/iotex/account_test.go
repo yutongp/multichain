@@ -23,10 +23,8 @@ var _ = Describe("IoTex", func() {
 		Context("when decoding IoTex address", func() {
 			It("should work", func() {
 				decoder := iotex.NewAddressDecoder()
-
 				addrStr := "io17ch0jth3dxqa7w9vu05yu86mqh0n6502d92lmp"
 				_, err := decoder.DecodeAddress(address.Address(pack.NewString(addrStr)))
-
 				Expect(err).ToNot(HaveOccurred())
 			})
 		})

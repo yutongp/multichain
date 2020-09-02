@@ -4,8 +4,7 @@
 *.dll
 *.so
 *.dylib
-*.idea
-./idea/*
+.idea
 # Tests
 *.test
 
