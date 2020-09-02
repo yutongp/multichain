@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:feat" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:upstream" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:upstream" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:feat" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="07fe3363-95d6-40f8-a009-3e4bc504c8a9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infra/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/infra/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/multichain.go" beforeDir="false" afterPath="$PROJECT_DIR$/multichain.go" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="GOROOT" path="D:\work\go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="ProjectId" id="1gIYAVsNmjTSQJrrKK9wbt2nIvm" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="go.vgo" />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1661" y="211" key="EditFileWatcherDialog" timestamp="1598956630777">
+      <screen x="1366" y="81" width="1440" height="819" />
+    </state>
+    <state x="1661" y="211" key="EditFileWatcherDialog/0.81.1366.687/1366.81.1440.819@1366.81.1440.819" timestamp="1598956630777" />
+    <state x="1813" y="185" key="FileChooserDialogImpl" timestamp="1599002106060">
+      <screen x="1366" y="81" width="1440" height="819" />
+    </state>
+    <state x="1813" y="185" key="FileChooserDialogImpl/0.81.1366.687/1366.81.1440.819@1366.81.1440.819" timestamp="1599002106060" />
+    <state x="1455" y="81" key="SettingsEditor" timestamp="1598956642580">
+      <screen x="1366" y="81" width="1440" height="819" />
+    </state>
+    <state x="1455" y="81" key="SettingsEditor/0.81.1366.687/1366.81.1440.819@1366.81.1440.819" timestamp="1598956642580" />
+    <state x="1694" y="81" width="748" height="740" key="find.popup" timestamp="1599017350305">
+      <screen x="1366" y="81" width="1440" height="819" />
+    </state>
+    <state x="1694" y="81" width="748" height="740" key="find.popup/0.81.1366.687/1366.81.1440.819@1366.81.1440.819" timestamp="1599017350305" />
+    <state x="1665" y="80" width="840" height="1034" key="search.everywhere.popup" timestamp="1599014638688">
+      <screen x="1366" y="81" width="1440" height="819" />
+    </state>
+    <state x="1665" y="80" width="840" height="1034" key="search.everywhere.popup/0.81.1366.687/1366.81.1440.819@1366.81.1440.819" timestamp="1599014638688" />
+  </component>
+</project>
