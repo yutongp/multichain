@@ -9,11 +9,13 @@ import (
 	"time"
 
 	"github.com/iotexproject/go-pkgs/crypto"
+	"github.com/iotexproject/iotex-proto/golang/iotexapi"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 	"github.com/renproject/multichain/api/address"
 	"github.com/renproject/multichain/chain/iotex"
 	"github.com/renproject/pack"
+	"google.golang.org/grpc"
 )
 
 var _ = Describe("IoTex", func() {
@@ -38,14 +40,23 @@ var _ = Describe("IoTex", func() {
 				if pkEnv == "" {
 					panic("pk is undefined")
 				}
+				gopts := []grpc.DialOption{}
+				gopts = append(gopts, grpc.WithInsecure())
+				endpoint := "api.testnet.iotex.one:80"
+				conn, err := grpc.Dial(endpoint, gopts...)
+				c := iotexapi.NewAPIServiceClient(conn)
+				request := &iotexapi.GetAccountRequest{Address: "io1vdtfpzkwpyngzvx7u2mauepnzja7kd5rryp0sg"}
+				res, err := c.GetAccount(context.Background(), request)
+				Expect(err).ToNot(HaveOccurred())
+
 				opts := iotex.ClientOptions{
-					Endpoint: "api.testnet.iotex.one:80",
+					Endpoint: endpoint,
 					Secure:   false,
 				}
 				client := iotex.NewClient(opts)
 				builder := iotex.TxBuilder{}
 				gasPrice, _ := new(big.Int).SetString("1000000000000", 10)
-				tx, err := builder.BuildTx("io1vdtfpzkwpyngzvx7u2mauepnzja7kd5rryp0sg", "io1vdtfpzkwpyngzvx7u2mauepnzja7kd5rryp0sg", pack.NewU256FromU64(pack.NewU64(1)), pack.NewU256FromU64(pack.NewU64(134)), pack.NewU256FromInt(gasPrice), pack.NewU256FromU64(pack.NewU64(1000000)), nil)
+				tx, err := builder.BuildTx("io1vdtfpzkwpyngzvx7u2mauepnzja7kd5rryp0sg", "io1vdtfpzkwpyngzvx7u2mauepnzja7kd5rryp0sg", pack.NewU256FromU64(pack.NewU64(1)), pack.NewU256FromU64(pack.NewU64(res.AccountMeta.PendingNonce)), pack.NewU256FromInt(gasPrice), pack.NewU256FromU64(pack.NewU64(1000000)), nil)
 				Expect(err).ToNot(HaveOccurred())
 				sh, err := tx.Sighash()
 				Expect(err).ToNot(HaveOccurred())

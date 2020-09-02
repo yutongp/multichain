@@ -183,7 +183,7 @@ func (c *client) Tx(ctx context.Context, h pack.Bytes) (account.Tx, pack.U64, er
 	fmt.Println("Tx", hex.EncodeToString(h))
 	fmt.Println("Tx", h.String())
 	res, err := c.client.GetActions(ctx, &iotexapi.GetActionsRequest{
-		Lookup: &iotexapi.GetActionsRequest_ByHash{ByHash: &iotexapi.GetActionByHashRequest{ActionHash: h.String()}}})
+		Lookup: &iotexapi.GetActionsRequest_ByHash{ByHash: &iotexapi.GetActionByHashRequest{ActionHash: hex.EncodeToString(h)}}})
 	if err != nil {
 		return nil, 0, err
 	}
